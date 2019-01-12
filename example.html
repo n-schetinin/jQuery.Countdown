@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JQuery.Countdown Examples</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js" integrity="sha384-vhJnz1OVIdLktyixHY4Uk3OHEwdQqPppqYR8+5mjsauETgLOcEynD9oPHhhz18Nw" crossorigin="anonymous"></script>
+        <link href="css/jquery.countdown.css" rel="stylesheet" media="screen">        
+        <script src="js/jquery.countdown.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#start_example1").bind("click", function () {
+                    $("#example1").countdown({"seconds": 10});
+                });
+                $("#example2").countdown({
+                    "seconds": 30,
+                    "ongoing": false,
+                    "selector-start": ".countdown-start",
+                    "selector-pause": ".countdown-pause"
+                });
+                $("#start_example3").bind("click", function () {
+                    $("#example3").countdown({
+                        "seconds": 10,
+                        "warning-time": 5,
+                        "normal-class": "countdown-normal",
+                        "warning-class": "countdown-warning",
+                        "stop-class": "countdown-stop"
+
+                    })
+                });
+                $("#start_example4").bind("click", function () {
+                    $("#example4").countdown({
+                        "seconds": 5,
+                        "prefix-text": "Time left: ",
+                        "stop-text": "Time's up!"
+                    });
+                });
+                $("#here").countdown({"ongoing": true, "seconds": 20, "warning-time": 10});
+            })
+        </script>
+        <style>
+            .example{
+                border: 1px solid darkgray;                
+            }
+        </style>
+    </head>
+    <body>        
+        <div class="container">
+            <h2>jQuery.Countdown plugin examples</h2>
+            jQuery.Countdown is a simple plugin for countdown seconds from any time to 0. <br>
+            Current time shows as "minutes":"seconds".<br>            
+            <hr>
+            <h3>Basic usage</h3>
+            For basic usage you need to set start time in seconds.<br>
+            Countdown automaticaly starts after initialization.<br>                        
+            <pre>
+$("#countdown").countdown({"seconds": 10}); </pre>
+            <button class="btn btn-primary" id="start_example1">Show</button><br><br>
+            <div class="alert example" id="example1">00:10</div>
+            <hr>
+            <h3>Ongoing parameter and control buttons</h3>
+            Sometimes you may need to manual start/stop countdown. For this purpose you can use <code>"ongoing"</code> parameter.<br>
+            Setting it to <code>false</code> disable automatic countdown start after init.<br>
+            For manual start or stop the timer you need to add elements (buttons for example) on you page and specify their selectors in
+            <code>"selector-start"</code> and <code>"selector-pause"</code> parameters.
+            <pre>
+$("#countdown").countdown({
+    "seconds": 30,
+    "ongoing": false,
+    "selector-start":".countdown-start",
+    "selector-pause":".countdown-pause"
+}); </pre>
+            <div class="alert example" id="example2">00:30</div>
+            <button class="btn btn-success countdown-start">Start</button><button class="btn btn-danger countdown-pause">Pause</button><br><br>
+            <hr>
+            <h3>Special classes and warning time</h3>
+            You may want to add css classes to you countdown element depend of time left (for coloring for example).<br>
+            You can do it by using the following parameters:<br>
+            <code>"normal-class"</code> - until you reach zero<br>
+            <code>"stop-class"</code> - when time's up<br>
+            Also you can use <code>"warning-time"</code> with <code>"warning-class"</code> parameters to make an alert on little time left.<br>
+            WARNING: use class names, not selectors!<br>
+            <pre>
+$("#countdown").countdown({
+    "seconds": 10,
+    "warning-time": 5,    
+    "normal-class":"countdown-normal",
+    "warning-class":"countdown-warning",
+    "stop-class":"countdown-stop"    
+}); </pre>
+            <button class="btn btn-primary" id="start_example3">Show</button><br><br>
+            <div class="alert example" id="example3">00:10</div>
+
+            <hr>
+            <h3>Additional text</h3>
+            Use <code>"prefix-text"</code> parameter to specify text before counting time. By default - empty string<br>
+            <code>"stop-text"</code> is for text, when time is up. Default is "00:00".
+            <br>
+            <pre>
+$("#countdown").countdown({
+    "seconds": 5,    
+    "prefix-text":"Time left: ",
+    "stop-text":"Time's up!"    
+}); </pre>
+            <button class="btn btn-primary" id="start_example4">Show</button><br><br>
+            <div class="alert example" id="example4">00:00</div>
+        </div>
+    </body>
+</html>
