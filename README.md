@@ -1,7 +1,7 @@
 # jQuery.Countdown
-# Plugin for countdown from specified time to zero
-# jQuery.Countdown is a simple plugin for countdown seconds from any time to 0.
-# Current time shows as "minutes":"seconds".
+Plugin for countdown from specified time to zero
+jQuery.Countdown is a simple plugin for countdown seconds from any time to 0.
+Current time shows as "minutes":"seconds".
 
 1. Basic usage
 For basic usage you need to set start time in seconds.
